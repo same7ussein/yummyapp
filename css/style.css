@@ -1,0 +1,190 @@
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  overflow: hidden;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+.overlay {
+  background-color: #f9f6f6ca;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  color: #0d0d0d;
+}
+
+.card:hover .overlay,
+.category:hover .overlay {
+  top: 0;
+}
+
+.logo {
+  width: 50px;
+}
+
+.navbar {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #dc3545;
+  z-index: 100;
+  padding: 0;
+}
+
+
+
+i {
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 3.5rem;
+}
+
+.nav-tab {
+  background-color: #0d0d0d;
+  height: 100%;
+  max-width: 230px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  color: #fff;
+}
+
+.footer-icon i {
+  margin-right: 15px;
+}
+
+.nav-tab {
+  display: none;
+  padding: 20px;
+  white-space: nowrap;
+}
+
+.links ul li {
+  position: relative;
+}
+
+.links {
+  overflow: hidden;
+}
+
+.meal-item,
+.category {
+  cursor: pointer;
+}
+
+.back-button {
+  display: none;
+}
+
+input::placeholder {
+  color: #fff !important;
+}
+
+.country,
+.ingredient {
+  cursor: pointer;
+}
+
+.country i,
+.ingredient i {
+  font-size: 5rem;
+}
+
+.contact-inputs input::placeholder {
+  color: #0d0d0d !important;
+}
+
+.loading {
+  position: fixed;
+  inset: 0;
+  background-color: #0d0d0d;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  border-radius: 50%;
+  background: #fff;
+  animation: wave 1s ease-in infinite;
+}
+
+@keyframes wave {
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, 1),
+      0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.6),
+      0 0 0 60px rgba(255, 255, 255, 0.4), 0 0 0 80px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 80px rgba(255, 255, 255, 0),
+      0 0 0 60px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.4),
+      0 0 0 20px rgba(255, 255, 255, 0.6), 0 0 0 0px rgba(255, 255, 255, 1);
+  }
+}
+
+
+@media screen and (max-width: 1200px ) {
+  .container{
+    padding: 0 !important;
+    margin: 10;
+  }
+  
+}
+.country,.ingredient {
+    transition: all 0.5s;
+}
+
+.country:hover,.ingredient:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(243, 8, 66), -1px -1px 5px rgb(243, 8, 66);
+}
+
+
+@media only screen and (max-width: 667px) {
+  .navbar {
+      height: 15vh;
+      background-color: transparent;
+  }
+
+
+  .nav-footer {
+      display: none;
+  }
+
+  .nav-icon img {
+      display: none;
+  }
+
+  .nav-icon .flex-column i {
+      display: none;
+  }
+.menu-icon{
+  padding: 0;
+  margin: 0;
+  background-color: #dc3545;
+}
+}
