@@ -8,25 +8,21 @@ function sidebar() {
     $(".links ul li").each(function (index) {
       $(this)
         .removeClass("animate__fadeInUp")
-        .css("animation-delay", index * 200 + "ms");
+        .css("animation-delay", index * 100 + "ms");
     });
 
-
     if (innerWidth <= 600) {
-      $("nav").animate({ height: '15vh' }, 500)
-      $(".nav-footer").hide(500)
-      $(".nav-icon img").hide(500)
-      $(".nav-icon .flex-column i").hide(500)
-       $(".navbar").css({ backgroundColor: "transparent" });
+      $("nav").animate({ height: "15vh" }, 500);
+      $(".nav-footer").hide(500);
+      $(".nav-icon img").hide(500);
+      $(".nav-icon .flex-column i").hide(500);
+      $(".navbar").css({ backgroundColor: "transparent" });
     }
-
-
   } else {
-
-    $("nav").animate({ left: 0, height: '100vh' }, 500)
-    $(".nav-footer").show(500)
-    $(".nav-icon img").show(500)
-    $(".nav-icon .flex-column i").show(500)
+    $("nav").animate({ left: 0, height: "100vh" }, 500);
+    $(".nav-footer").show(500);
+    $(".nav-icon img").show(500);
+    $(".nav-icon .flex-column i").show(500);
     $(".navbar").css({ backgroundColor: "#dc3545" });
 
     $(".nav-tab").animate({ width: "toggle", paddingInline: "toggle" }, 500);
@@ -34,7 +30,7 @@ function sidebar() {
     $(".links ul li").each(function (index) {
       $(this)
         .addClass("animate__animated animate__fadeInUp")
-        .css("animation-delay", index * 200 + "ms");
+        .css("animation-delay", index * 100 + "ms");
     });
   }
 }
@@ -109,8 +105,6 @@ async function getMealDetails(mealId) {
   }
 }
 
-
-
 function displayDetailsMeals(meal) {
   console.log(meal);
   $("#showSearch").html(``);
@@ -139,8 +133,9 @@ function displayDetailsMeals(meal) {
 
   for (i = 1; i <= 20; i++) {
     if (meal[`strIngredient${i}`]) {
-      ingredients += `<li class="alert alert-info me-2 my-1 p-2">${meal[`strMeasure${i}`]
-        } ${meal[`strIngredient${i}`]}</li>`;
+      ingredients += `<li class="alert alert-info me-2 my-1 p-2">${
+        meal[`strMeasure${i}`]
+      } ${meal[`strIngredient${i}`]}</li>`;
     }
   }
   detailsMeal += `
@@ -186,7 +181,7 @@ getMeals();
 function showSearch() {
   $("#showSearch").html(
     `
-    <div class='my-5 row g-2'>
+    <div class='my-5 row g-2 media'>
         <div class="col-md-6">
             <input type="search" placeholder="Search by Name" class="searchName form-control bg-transparent text-white ">
           </div>
@@ -197,6 +192,10 @@ function showSearch() {
     </div>
     `
   );
+
+  if (innerWidth <= 600) {
+    $(".media").css({ paddingTop: "20px" });
+  }
 
   $(".meal-items").html(``);
 }
@@ -225,17 +224,19 @@ function displayCategory(categories) {
   let categoryCards = ``;
   for (i = 0; i < categories.length; i++) {
     categoryCards += `
-     <div class="col-lg-3 col-md-4" onclick="getCategoryMeals('c','${categories[i].strCategory
-      }')">
+     <div class="col-lg-3 col-md-4" onclick="getCategoryMeals('c','${
+       categories[i].strCategory
+     }')">
                     <div class="position-relative category overflow-hidden rounded-2">
-                        <img src="${categories[i].strCategoryThumb
-      }" class="w-100" alt="">
+                        <img src="${
+                          categories[i].strCategoryThumb
+                        }" class="w-100" alt="">
                         <div class="overlay d-flex flex-column align-items-center justify-content-center text-center p-1">
                             <h3>${categories[i].strCategory}</h3>
                             <p>${categories[i].strCategoryDescription
-        .split(" ")
-        .slice(0, 20)
-        .join(" ")}</p>
+                              .split(" ")
+                              .slice(0, 20)
+                              .join(" ")}</p>
                         </div>
                     </div>
                 </div>
@@ -303,15 +304,16 @@ function displayIngredients(arr) {
   let ingredient = ``;
   for (let i = 0; i < arr.length; i++) {
     ingredient += `
-          <div class="col-md-3" onclick="getCategoryMeals('i','${arr[i].strIngredient
-      }')">
+          <div class="col-md-3" onclick="getCategoryMeals('i','${
+            arr[i].strIngredient
+          }')">
                    <div class="ingredient text-center p-3">
                     <i class="fa-solid fa-drumstick-bite"></i>
                     <h3>${arr[i].strIngredient}</h3>
                     <p>${arr[i].strDescription
-        .split(" ")
-        .slice(0, 25)
-        .join(" ")}<p/>
+                      .split(" ")
+                      .slice(0, 25)
+                      .join(" ")}<p/>
                    </div>
                 </div>
     `;
@@ -322,13 +324,12 @@ function displayIngredients(arr) {
 function contact() {
   $("#showSearch").html(``);
   contactInputs = `
-                <div class="col-md-6">
-                    <input type="text" name="inputName" class="form-control" id="inputName" placeholder="Enter Your Name">
+                <div class="col-md-6 ">
+                    <input type="text" name="inputName" class="input-style form-control" id="inputName" placeholder="Enter Your Name">
                     <p id="nameMessage" class="m-1 p-1 text-danger d-none text-start">
                           Enter a valid username
                     </p>
-                </div>
-
+              </div>
                 <div class="col-md-6">
                     <input type="email" name="inputEmail" class="form-control" id="inputEmail" placeholder="Enter Your Email">
                     <p id="emailMessage" class="m-1 p-1 text-danger d-none text-start">
@@ -492,4 +493,3 @@ $(document).on("click", "#contactBtn", function () {
     timer: 1500,
   });
 });
-
