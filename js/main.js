@@ -1,17 +1,30 @@
 /// <reference types="../@types/jquery" />
 
 function sidebar() {
-  $(".menu-icon").toggleClass("bi-list bi-x");
-  $(".nav-tab").animate({ width: "toggle", padding: "toggle" }, 500);
-
+  $(".menu-icon").toggleClass("bi-list bi-x", 500);
   if ($(".menu-icon").hasClass("bi-list")) {
+    $(".nav-tab").animate({ width: "toggle", padding: "toggle" }, 500);
     $(".links ul ").addClass("animate__animated animate__fadeOutDownBig");
     $(".links ul li").each(function (index) {
       $(this)
         .removeClass("animate__fadeInUpBig")
         .css("animation-delay", index * 10 + "ms");
     });
+
+    if (innerWidth <= 600) {
+      $("nav").animate({ height: "15vh" }, 500);
+      $(".nav-footer").hide(500);
+      $(".nav-icon img").hide(500);
+      $(".nav-icon .flex-column i").hide(500);
+      $(".navbar").css({ backgroundColor: "transparent" });
+    }
   } else {
+    $("nav").animate({ left: 0, height: "100vh" }, 500);
+    $(".nav-footer").show(500);
+    $(".nav-icon img").show(500);
+    $(".nav-icon .flex-column i").show(500);
+    $(".navbar").css({ backgroundColor: "#dc3545" });
+    $(".nav-tab").animate({ width: "toggle", paddingInline: "toggle" }, 500);
     $(".links ul ").removeClass("animate__fadeOutDownBig");
     $(".links ul li").each(function (index) {
       $(this)
@@ -65,7 +78,6 @@ function displayMeals(meals) {
     </div>
   `;
   }
-
   $(".meal-items").html(allMeals);
   $(".back-button").css({ display: "none" });
 }
@@ -272,10 +284,10 @@ function displayArea(arr) {
   for (let i = 0; i < arr.length; i++) {
     area += `
           <div class="col-lg-3 col-md-4" onclick="getCategoryMeals('a','${arr[i].strArea}')">
-                   <div class="country position-relative category overflow-hidden rounded-2 text-center p-3">
+                  <div class="country position-relative category overflow-hidden rounded-2 text-center p-3">
                     <i class="fa-solid fa-globe"></i>
                     <h3>${arr[i].strArea}</h3>
-                   </div>
+                  </div>
                 </div>
     `;
   }

@@ -9,7 +9,7 @@ a {
   text-decoration: none;
 }
 
-h3{
+h3 {
   font-size: 1.5rem;
 }
 
@@ -42,8 +42,6 @@ h3{
   z-index: 100;
   padding: 0;
 }
-
-
 
 i {
   color: #fff;
@@ -146,60 +144,57 @@ input::placeholder {
   }
 }
 
-
-@media screen and (max-width: 1200px ) {
-  .container{
+@media screen and (max-width: 1200px) {
+  .container {
     padding: 10 !important;
     margin: 10;
   }
-  
 }
-.country,.ingredient {
-    transition: all 0.5s;
+.country,
+.ingredient {
+  transition: all 0.5s;
 }
 
-
-.country:hover,.ingredient:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 5px rgb(243, 8, 66), -1px -1px 5px rgb(243, 8, 66);
+.country:hover,
+.ingredient:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgb(243, 8, 66), -1px -1px 5px rgb(243, 8, 66);
 }
-.links li:hover{
+.links li:hover {
   border: 2px solid rgb(243, 8, 66);
   border-radius: 20px;
 }
 
-
 @media only screen and (max-width: 667px) {
   .navbar {
-      height: 15vh;
-      background-color: transparent;
+    height: 15vh;
+    background-color: transparent;
   }
 
   .nav-footer {
-      display: none;
+    display: none;
   }
 
   .nav-icon img {
-      display: none;
+    display: none;
   }
 
   .nav-icon .flex-column i {
-      display: none;
+    display: none;
   }
-  
-  .nav-icon{
+  .menu-icon {
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    background-color: #dc3545;
+    font-size: 2.8rem;
+  }
+
+  .nav-icon {
     padding: 0 !important;
   }
-.menu-icon{
-  border-radius: 10px;
-  padding: 0;
-  margin: 0;
-  background-color: #dc3545;
-  font-size: 2.8rem;
+  
+  .input-style {
+    margin-top: 45px;
+  }
 }
-
-.input-style{
-  margin-top: 45px;
-}
-}
-
